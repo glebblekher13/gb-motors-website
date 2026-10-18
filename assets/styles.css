@@ -114,6 +114,8 @@ a.card:hover::after,.card.hover:hover::after{width:100%}
 .card h3{margin-bottom:10px}
 .card p{color:var(--muted);font-size:.95rem}
 .card .more{margin-top:auto;padding-top:18px;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2)}
+.card .power{font-family:Oswald,Impact,sans-serif;font-size:1.35rem;font-weight:600;color:var(--text);letter-spacing:.02em;line-height:1.2;margin:2px 0 12px}
+.card .power small{display:block;font-family:Inter,system-ui,sans-serif;font-size:.78rem;font-weight:500;color:var(--dim);letter-spacing:0;margin-top:4px}
 .card ul{list-style:none;margin-top:14px;display:grid;gap:6px;color:var(--muted);font-size:.92rem}
 .card ul li{padding-left:16px;position:relative}
 .card ul li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--accent);transform:skewX(-15deg)}
