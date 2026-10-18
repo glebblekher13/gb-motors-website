@@ -1,0 +1,3 @@
+# Send every www / http variant straight to the canonical host in one hop
+http://www.thegbmotors.com/*   https://thegbmotors.com/:splat   301!
+https://www.thegbmotors.com/*  https://thegbmotors.com/:splat   301!
