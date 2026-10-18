@@ -1,0 +1,3 @@
+#!/bin/sh
+# Keep sitemap.xml lastmod dates in step with the pages being committed.
+python3 scripts/update-sitemap.py && git add sitemap.xml
