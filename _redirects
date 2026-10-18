@@ -1,3 +1,7 @@
 # Send every www / http variant straight to the canonical host in one hop
 http://www.thegbmotors.com/*   https://thegbmotors.com/:splat   301!
 https://www.thegbmotors.com/*  https://thegbmotors.com/:splat   301!
+
+# Platform pages renamed 2026-10-18
+/makes/bmw-n55-s55-tuning/   /makes/bmw-s55-tuning/   301
+/makes/audi-vw-ea888-tuning/  /makes/vw-golf-tuning/   301
