@@ -51,6 +51,30 @@ if (reveals.length && 'IntersectionObserver' in window && !matchMedia('(prefers-
   reveals.forEach(el => ro.observe(el));
 }
 
+// Engine picker on the homepage: without script every panel stays visible as a list
+const tabs = [...document.querySelectorAll('.tabs [role="tab"]')];
+if (tabs.length) {
+  document.documentElement.classList.add('js');
+  const select = tab => tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute('aria-selected', on);
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+  });
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+  select(tabs[0]);
+}
+
 // Make picker on the quote form: ?make=bmw preselects it
 const params = new URLSearchParams(location.search);
 ['make', 'service'].forEach(k => {
