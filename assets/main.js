@@ -39,6 +39,18 @@ if (counters.length && 'IntersectionObserver' in window && !matchMedia('(prefers
   counters.forEach(el => co.observe(el));
 }
 
+// Fade sections up as they scroll into view
+const reveals = document.querySelectorAll('.reveal');
+if (reveals.length && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('js-reveal');
+  const ro = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    ro.unobserve(e.target);
+    e.target.classList.add('in');
+  }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => ro.observe(el));
+}
+
 // Make picker on the quote form: ?make=bmw preselects it
 const params = new URLSearchParams(location.search);
 ['make', 'service'].forEach(k => {

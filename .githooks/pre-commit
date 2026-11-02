@@ -1,3 +1,5 @@
 #!/bin/sh
 # Keep sitemap.xml lastmod dates in step with the pages being committed.
-python3 scripts/update-sitemap.py && git add sitemap.xml
+# Apple's python: Homebrew's ad-hoc-signed build is refused writes to files
+# carrying com.apple.provenance.
+/usr/bin/python3 scripts/update-sitemap.py && git add sitemap.xml
